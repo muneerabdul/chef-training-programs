@@ -5,6 +5,5 @@ file 'sample1.txt' do
 end
 
 file 'gou.txt' do
-	content "Welcome to chef"
+	content "WELCOME CHEF"
 end
-
