@@ -12,5 +12,5 @@ file '/root/.bash_profile' do
 action :create
 end
 execute 'reload' do
-command '. /root/.bash_profile'
+command 'source /root/.bash_profile'
 end
