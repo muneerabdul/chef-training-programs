@@ -1,9 +1,7 @@
-package 'httpd'
 
-file "/var/www/html/index.html" do
- content "<h1> Welcome to Chef Session!!</h1></br><h2>Happy Learning!!</h2>"
-end
+include_recipe 'webserver::file'
+include_recipe 'webserver::package'
+include_recipe 'webserver::template'
+include_recipe 'webserver::service'
 
-service 'httpd' do
-  action :start
-end
+
