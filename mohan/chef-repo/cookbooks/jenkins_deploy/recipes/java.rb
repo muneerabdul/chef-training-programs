@@ -11,6 +11,6 @@ file '/root/.bash_profile' do
   EOH
 action :create
 end
-execute 'reload' do
-command 'source /root/.bash_profile'
-end
+#execute 'reload' do
+#  command 'source /root/.bash_profile'
+#end
