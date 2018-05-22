@@ -1,6 +1,6 @@
 name 'jenkins_deploy'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'mohan garapati'
+maintainer_email 'mohangarapati0@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures jenkins_deploy'
 long_description 'Installs/Configures jenkins_deploy'
