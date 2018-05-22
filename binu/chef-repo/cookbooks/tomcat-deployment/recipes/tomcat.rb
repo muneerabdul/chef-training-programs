@@ -1,4 +1,7 @@
 
+package 'unzip'
+package 'zip'
+
 bash 'tomcat_zip' do
         cwd ::File.dirname('/opt/')
 	ignore_failure	true
@@ -12,6 +15,14 @@ end
 # customising using templates
 template '/opt/apache-tomcat-9.0.8/conf/tomcat-users.xml' do
   source 'tomcatconf.xml.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
+# customising using templates
+template '/opt/apache-tomcat-9.0.8/webapps/manager/META-INF/context.xml' do
+  source 'tomcatcontext.xml.erb'
   owner 'root'
   group 'root'
   mode '0755'

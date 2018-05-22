@@ -34,10 +34,25 @@
   examples web application, do not forget to remove the <!.. ..> that surrounds
   them. You will also need to set the passwords to something appropriate.
 -->
+
+<!--
   <role rolename="tomcat"/>
   <role rolename="role1"/>
+  <role rolename="admin-gui"/>
+  <role rolename="manager-gui"/>
   <user username="tomcat" password="<must-be-changed>" roles="tomcat"/>
   <user username="both" password="<must-be-changed>" roles="tomcat,role1"/>
   <user username="role1" password="<must-be-changed>" roles="role1"/>
-  <user username="infosys" password="infosys" roles="tomcat"/>
+  <user username="infosys" password="infosys" roles="tomcat,admin-gui,manager-gui"/>
+
+-->
+
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jax"/>
+  <role rolename="manager-status"/>
+  <role rolename="admin"/>
+  <role rolename="admin-gui"/>
+  
+  <user username="infosys" password="infosys" roles="manager-gui,admin,admin-gui,manager-script,manager-jax,manager-status"/>
 </tomcat-users>
