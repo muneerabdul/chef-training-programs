@@ -4,6 +4,9 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
+include_recipe 'webserver::file'
+
+
 package 'httpd'
 
 file "/var/www/html/index.html" do
