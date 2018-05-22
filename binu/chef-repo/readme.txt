@@ -23,4 +23,20 @@ To execute a recipe in cookbook apacheserver [ this will run the file.rb ]
 ---------------------
 sudo chef-client --local-mode --runlist 'recipe[apacheserver::file]'
 
+How to use templates in Cookbooks?
+========================================================================
+How to create a template using commands?
+chef generate template cookbooks/apacheserver index.html
 
+
+How to include another reciepe in another recipe?
+========================================================================
+include_recipe 'apacheserver::file'
+include_recipe 'apacheserver::package'
+include_recipe 'apacheserver::template'
+include_recipe 'apacheserver::service'
+
+$ sudo chef-client --local-mode --runlist 'recipe[apacheserver]'
+$ sudo chef-client --local-mode --runlist 'recipe[apacheserver::package]'
+$ sudo chef-client --local-mode --runlist 'recipe[apacheserver::template]'
+$ sudo chef-client --local-mode --runlist 'recipe[apacheserver::service]'
