@@ -1,0 +1,8 @@
+script 'start-tomcat' do
+  interpreter "bash"
+  cwd '/opt/apache-tomcat-9.0.8/bin'
+  code <<-EOH
+  sh shutdown.sh
+  sh startup.sh
+  EOH
+end
