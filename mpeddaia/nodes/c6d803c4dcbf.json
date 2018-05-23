@@ -5,6 +5,15 @@
 
     ]
   },
+  "default": {
+    "createdir": {
+      "shared_dir": "shared-lib",
+      "config_dir": "shared-config",
+      "mode": 755,
+      "owner": "ec2-user",
+      "group": "root"
+    }
+  },
   "automatic": {
     "languages": {
       "perl": {
@@ -56,24 +65,24 @@
         "surplus": "0"
       },
       "total": "2046696kB",
-      "free": "209148kB",
-      "available": "1157836kB",
-      "buffers": "85548kB",
-      "cached": "940264kB",
-      "active": "959892kB",
-      "inactive": "712796kB",
-      "dirty": "92kB",
+      "free": "200068kB",
+      "available": "1157840kB",
+      "buffers": "88576kB",
+      "cached": "945744kB",
+      "active": "978908kB",
+      "inactive": "701372kB",
+      "dirty": "36kB",
       "writeback": "0kB",
-      "anon_pages": "646752kB",
-      "mapped": "105012kB",
-      "slab": "136728kB",
-      "slab_reclaimable": "111244kB",
-      "slab_unreclaim": "25484kB",
-      "page_tables": "4124kB",
+      "anon_pages": "645832kB",
+      "mapped": "105248kB",
+      "slab": "137884kB",
+      "slab_reclaimable": "112412kB",
+      "slab_unreclaim": "25472kB",
+      "page_tables": "4260kB",
       "nfs_unstable": "0kB",
       "bounce": "0kB",
       "commit_limit": "2071920kB",
-      "committed_as": "1115264kB",
+      "committed_as": "1113796kB",
       "vmalloc_total": "34359738367kB",
       "vmalloc_used": "0kB",
       "vmalloc_chunk": "0kB",
@@ -389,7 +398,7 @@
 
       }
     },
-    "ohai_time": 1527054801.5346994,
+    "ohai_time": 1527060023.6019082,
     "chef_packages": {
       "ohai": {
         "version": "13.8.0",
@@ -404,12 +413,12 @@
       "by_device": {
         "overlay": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "overlay",
           "mount_options": [
@@ -451,12 +460,12 @@
         },
         "/dev/sda1": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "ext4",
           "mount_options": [
@@ -747,12 +756,12 @@
       "by_mountpoint": {
         "/": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "overlay",
           "mount_options": [
@@ -810,12 +819,12 @@
         },
         "/etc/hosts": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "ext4",
           "mount_options": [
@@ -1249,13 +1258,13 @@
         "overlay,/": {
           "device": "overlay",
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "mount": "/",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "overlay",
           "mount_options": [
@@ -1309,13 +1318,13 @@
         "/dev/sda1,/etc/hosts": {
           "device": "/dev/sda1",
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "mount": "/etc/hosts",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "ext4",
           "mount_options": [
@@ -1728,12 +1737,12 @@
       "by_device": {
         "overlay": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "overlay",
           "mount_options": [
@@ -1775,12 +1784,12 @@
         },
         "/dev/sda1": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "ext4",
           "mount_options": [
@@ -2071,12 +2080,12 @@
       "by_mountpoint": {
         "/": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "overlay",
           "mount_options": [
@@ -2134,12 +2143,12 @@
         },
         "/etc/hosts": {
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "ext4",
           "mount_options": [
@@ -2573,13 +2582,13 @@
         "overlay,/": {
           "device": "overlay",
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "mount": "/",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "overlay",
           "mount_options": [
@@ -2633,13 +2642,13 @@
         "/dev/sda1,/etc/hosts": {
           "device": "/dev/sda1",
           "kb_size": "65792556",
-          "kb_used": "8380188",
-          "kb_available": "54040592",
+          "kb_used": "8386292",
+          "kb_available": "54034488",
           "percent_used": "14%",
           "mount": "/etc/hosts",
           "total_inodes": "4194304",
-          "inodes_used": "279895",
-          "inodes_available": "3914409",
+          "inodes_used": "280510",
+          "inodes_available": "3913794",
           "inodes_percent_used": "7%",
           "fs_type": "ext4",
           "mount_options": [
@@ -3714,7 +3723,7 @@
       "ULONG_MAX": 18446744073709551615,
       "USHRT_MAX": 65535,
       "WORD_BIT": 32,
-      "_AVPHYS_PAGES": 51928,
+      "_AVPHYS_PAGES": 49513,
       "_NPROCESSORS_CONF": 4,
       "_NPROCESSORS_ONLN": 4,
       "_PHYS_PAGES": 511674,
@@ -5398,10 +5407,10 @@
       "ps": "ps -ef"
     },
     "root_group": "root",
-    "uptime_seconds": 51561,
-    "uptime": "14 hours 19 minutes 21 seconds",
-    "idletime_seconds": 205387,
-    "idletime": "2 days 09 hours 03 minutes 07 seconds",
+    "uptime_seconds": 56783,
+    "uptime": "15 hours 46 minutes 23 seconds",
+    "idletime_seconds": 226236,
+    "idletime": "2 days 14 hours 50 minutes 36 seconds",
     "time": {
       "timezone": "UTC"
     },
@@ -5414,10 +5423,14 @@
       "/usr/sbin/nologin"
     ],
     "recipes": [
-      "webserver::loop1"
+      "webserver",
+      "webserver::default",
+      "webserver::file",
+      "webserver::package",
+      "webserver::template"
     ],
     "expanded_run_list": [
-      "webserver::loop1"
+      "webserver::default"
     ],
     "roles": [
 
@@ -5429,6 +5442,6 @@
     }
   },
   "run_list": [
-    "recipe[webserver::loop1]"
+    "recipe[webserver]"
   ]
 }
