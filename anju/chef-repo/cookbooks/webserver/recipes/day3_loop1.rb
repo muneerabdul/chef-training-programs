@@ -2,5 +2,4 @@
  package package do
    action :install
  end
-
 end
