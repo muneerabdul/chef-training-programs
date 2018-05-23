@@ -1,4 +1,4 @@
-['vim', 'ntp', 'git'].each do |package|
+['vim', 'ntp', 'nginx'].each do |package|
  package package do
    action :install
  end
