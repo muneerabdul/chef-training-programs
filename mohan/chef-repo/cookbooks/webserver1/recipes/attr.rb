@@ -11,11 +11,11 @@ packages.each do |package|
    action :install
  end
 end
-default['createdir']['shared_dir'] = 'shared-lib'
-default['createdir']['config_dir'] = 'shared-config'
-default['createdir']['mode'] = 755
-default['createdir']['owner'] = "ec2-user"
-default['createdir']['group'] = "root"
+node.default['createdir']['shared_dir'] = 'shared-lib'
+node.default['createdir']['config_dir'] = 'shared-config'
+node.default['createdir']['mode'] = 755
+node.default['createdir']['owner'] = "ec2-user"
+node.default['createdir']['group'] = "root"
 
 [ "/opt/#{node['createdir']['shared_dir']}", "/opt/#{node['createdir']['config_dir']}" ].each do |path|
   directory path do
