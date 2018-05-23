@@ -1,5 +1,5 @@
 template '/var/www/html/index.html' do
-  source 'index.html.erb'
+  source 'index1.html.erb'
   owner 'root'
   group 'root'
   mode '0755'
