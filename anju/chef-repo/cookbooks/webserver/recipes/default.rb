@@ -6,6 +6,7 @@
 
 include_recipe 'webserver::file'
 
+include_recipe 'webserver::file'
 
 package 'httpd'
 
