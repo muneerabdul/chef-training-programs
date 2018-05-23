@@ -1,3 +1,3 @@
 service 'httpd' do
-  action :start
+  action :stop
 end

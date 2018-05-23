@@ -9,6 +9,8 @@ include_recipe 'apacheserver::file'
 include_recipe 'apacheserver::package'
 include_recipe 'apacheserver::template'
 include_recipe 'apacheserver::service'
+include_recipe 'apacheserver::loop'
+include_recipe 'apacheserver::attributeexample'
 
 
 #installing httpd
