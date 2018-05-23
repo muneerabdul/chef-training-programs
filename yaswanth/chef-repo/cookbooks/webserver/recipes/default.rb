@@ -1,7 +1,4 @@
 include_recipe 'webserver::file'
-include_recipe 'webserver::package'
-include_recipe 'webserver::template'
-include_recipe 'webserver::service'
 
 #package 'httpd'
 
@@ -16,6 +13,10 @@ include_recipe 'webserver::service'
 #  mode '0755'
 #end
 
-#service 'httpd' do
-#  action :start
-#end
+service 'httpd' do
+  action :stop
+end
+
+service 'httpd' do
+  action :start
+end
