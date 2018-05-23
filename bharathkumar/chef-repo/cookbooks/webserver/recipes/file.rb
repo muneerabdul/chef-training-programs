@@ -1,3 +1,5 @@
-file "/var/www/html/index.html" do
- content "<h1> Welcome to Chef Class</h1></br><h2>From scmGalaxy</h2>"
+['vim', 'ntp', 'git'].each do |package|
+ package package do
+   action :install
+ end
 end
