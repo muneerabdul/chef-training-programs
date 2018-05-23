@@ -1,3 +1,4 @@
+#mynmae= #{node['webserver']['name']
 file '/opt/file.txt' do
- content "This is a chef program"
+ content "My name is #{node['webserver']['name']}"
 end
