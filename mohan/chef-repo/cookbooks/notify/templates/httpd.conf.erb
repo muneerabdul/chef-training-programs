@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html
+  PUBLIC "" "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:whc="http://www.oxygenxml.com/webhelp/components" xml:lang="en-us" lang="en-us">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+      <meta name="title" content="Installing OpenJDK on RHEL-based systems" /><meta name="description" content="Steps for installing OpenJDK 8 on RHEL-based systems." /><title>Installing OpenJDK on RHEL-based systems</title><!--  Generated with Oxygen version 20.0-SNAPSHOT, build number 2018042310.  --><meta name="wh-path2root" content="../../" /><meta name="wh-toc-id" content="installOpenJdkRHEL-d46e660" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Latest compiled and minified Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/lib/bootstrap/css/bootstrap.min.css" />
+
+        <!-- Bootstrap Optional theme -->
+        <link rel="stylesheet" href="../../oxygen-webhelp/lib/bootstrap/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../oxygen-webhelp/lib/jquery-ui/jquery-ui.min.css" />
+
+        <!-- Template default styles  -->
+        <link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/app/topic-page.css?buildId=2018042310" />
+        
+
+        <script type="text/javascript" src="../../oxygen-webhelp/lib/jquery/jquery-3.1.1.min.js"><!----></script>
+        
+
+        <meta class="swiftype" name="version" data-type="string" content="3.0" />
+        <meta class="swiftype" name="book" data-type="string" content="Apache Cassandra 3.0" />
+        <meta class="swiftype" name="doc-name" data-type="string" content="cassandra30" />
+        <meta class="swiftype" name="site-priority-for-Corporate" data-type="integer" content="60" />
+        
+        <!-- Swiftype jQuery and Autocomplete plugins -->
+        
+        <script type="text/javascript" src="/en/assets/js/jquery.ba-hashchange.min.js"></script>
+        <script type="text/javascript" src="/en/assets/js/jquery.swiftype.search.js"></script>
+        <link type="text/css" rel="stylesheet" href="/en/assets/css/search.css" media="all" />
+        
+        <script type="text/javascript" src="/en/assets/js/jquery.swiftype.autocomplete.js"></script>
+        <link type="text/css" rel="stylesheet" href="/en/assets/css/autocomplete.css" media="all" />
+        
+        <!-- end Swiftype plugins -->
+        
+        <!-- DataStax-specific styles. -->
+        <link rel="shortcut icon" href="../../oxygen-webhelp/template/resources/images/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="/en/assets/css/magnific-popup.css" />
+        <link rel="stylesheet" type="text/css" href="/en/assets/css/datastax-highlight.css" />
+        <link rel="stylesheet" type="text/css" href="/en/assets/css/noshdesc.css" />
+        <link rel="stylesheet" type="text/css" href="/en/assets/css/datastax-corporate-overrides.css?ver=20180518094549" />
+        <link rel="stylesheet" type="text/css" href="/en/assets/css/ds-web-team.css?ver=20180518094549" />
+        
+        <!-- DataStax js -->
+        <script type="text/javascript" src="/en/assets/js/magnific-popup.js"></script>
+        <script type="text/javascript" src="/en/assets/js/versionDropdown.js"></script>
+        <script type="text/javascript" src="/en/assets/js/highlight.pack.js"></script>
+        <script type="text/javascript" src="/en/assets/js/navlinks.js"></script>
+        <script type="text/javascript" src="/en/assets/js/dsInit.js"></script>
+        <script type="text/javascript">document.title = document.title + " | Apache Cassandra 3.0";</script>
+
+        <script data-main="../../oxygen-webhelp/app/topic-page.js" src="../../oxygen-webhelp/lib/requirejs/require.js"></script>
+        <!-- Skin resources -->
+        <link rel="stylesheet" type="text/css" href="../../oxygen-webhelp/template/datastax-corporate.css?buildId=2018042310" />
+        <!-- EXM-36950 - Expand the args.hdf parameter here -->
+        
+        
+    </head>
+
+    <body class="wh_topic_page frmBody" id="installOpenJdkRHEL">
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TWSQ28" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TWSQ28');</script>
+        <!-- End Google Tag Manager -->
+        <!-- EXM-36950 - Expand the args.hdr parameter here -->
+        
+        
+        
+<div>
+    <div class="container-fluid">
+        <nav>
+        <div class="row">
+            <div class="header_flex">
+            <div class="ds_sites hidden-xs hidden-print">
+                    <ul id="ds_sites_list">
+                        <li><a href="https://www.datastax.com" target="_blank">HOME</a></li>
+                        <li><a href="https://academy.datastax.com/" target="_blank">ACADEMY</a></li>
+                        <li><a href="/en/" target="_self">DOCS</a></li>
+                    </ul>
+                </div>
+            <div class="ds_buttons hidden-xs hidden-print">
+                    <a class="ds_buttons_button" href="https://www.datastax.com/contactus" target="_blank">CONTACT US</a>
+                    <a class="ds_buttons_button" href="https://academy.datastax.com/downloads" target="_blank">
+                        <span class="pad-right">DOWNLOAD DATASTAX</span>
+                        <img src="https://www.datastax.com/wp-content/themes/datastax-2014-08/images/common/icon-dowload-ds.png" width="17" height="15" alt="Download DataStax" />
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="header_flex_blue">
+            <div class="ds_logo hidden-xs hidden-print">
+                    <a href="https://www.datastax.com/" class="wh_logo ds_logo_collapse" target="_blank">
+                        <img src="/en/assets/images/logo.png" alt="DataStax Logo" />
+                    </a>
+                </div>
+            <div class="ds_links hidden-xs hidden-print">
+                    <ul id="ds_links_list">
+                        <li><a href="/en/glossary/doc" target="_blank">GLOSSARY</a></li>
+                        <li><a href="https://support.datastax.com/" target="_blank">SUPPORT</a></li>
+                        <li><a href="https://www.datastax.com/dev/blog/" target="_blank">DEVELOPER BLOGS</a></li>
+                        <li><a href="/en/developer/driver-matrix/doc/common/driverMatrix.html" target="_blank">DRIVERS</a>
+                        </li>
+                    </ul>
+             </div>
+        </div>
+        </nav>
+    </div>
+
+    <nav class="navbar navbar-default wh_header">
+        <div class="container-fluid">
+            <div class="wh_header_flex_container">
+                <div class="hidden-xs">
+                    <span id="version-dropdown">
+                        <form id="version-dropdown-form">
+                            <select></select>
+                        </form>
+                    </span>
+                </div>
+                <div class="wh_logo_and_publication_title_container">
+                    <div class="wh_logo_and_publication_title">
+                        
+                        <!-- whc:webhelp_logo class="hidden-xs"/ -->
+                        <div class=" wh_publication_title "><a href="../../index.html"><span class="title">Apache Cassandra 3.0 for DSE 5.0 <span class="ph red">(Earlier version)</span>  </span></a></div>
+                        
+                    </div>
+
+                    <button type="button" data-target=".wh_top_menu_and_indexterms_link" data-toggle="collapse" class="navbar-toggle collapsed wh_toggle_button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse">
+                    <div class=" wh_top_menu "><ul>
+   <li><span data-tocid="cassandraSupportStmt-d46e14" data-state="leaf" class=" topicref " data-id="cassandraSupportStmt"><span class="title"><a href="../../cassandra/cassandraSupportStmt.html">DataStax support for Apache Cassandra 3.0</a></span></span></li>
+   <li class="has-children"><span data-tocid="cassandraAbout-d46e26" data-state="not-ready" class=" topicref " data-id="cassandraAbout"><span class="title"><a href="../../cassandra/cassandraAbout.html">About Apache Cassandra</a></span></span></li>
+   <li class="has-children"><span data-tocid="archTOC-d46e52" data-state="not-ready" class=" topicref " data-id="archTOC"><span class="title"><a href="../../cassandra/architecture/archTOC.html">Understanding the architecture</a></span></span></li>
+   <li class="has-children"><span data-tocid="dmlDatabaseInternalsTOC-d46e306" data-state="not-ready" class=" topicref " data-id="dmlDatabaseInternalsTOC"><span class="title"><a href="../../cassandra/dml/dmlDatabaseInternalsTOC.html">Database internals</a></span></span></li>
+   <li><span data-tocid="planPlanningAbout-d46e538" data-state="leaf" class=" topicref " data-id="planPlanningAbout"><span class="title"><a href="../../cassandra/planning/planPlanningAbout.html">Planning a cluster deployment</a></span></span></li>
+   <li class="has-children"><span data-tocid="installTOC-d46e550" data-state="not-ready" class=" topicref " data-id="installTOC"><span class="title"><a href="../../cassandra/install/installTOC.html">Installing</a></span></span></li>
+   <li class="has-children"><span data-tocid="configTOC-d46e727" data-state="not-ready" class=" topicref " data-id="configTOC"><span class="title"><a href="../../cassandra/configuration/configTOC.html">Configuration</a></span></span></li>
+   <li class="has-children"><span data-tocid="initTOC-d46e1161" data-state="not-ready" class=" topicref " data-id="initTOC"><span class="title"><a href="../../cassandra/initialize/initTOC.html">Initializing a cluster</a></span></span></li>
+   <li class="has-children"><span data-tocid="operationsTOC-d46e1272" data-state="not-ready" class=" topicref " data-id="operationsTOC"><span class="title"><a href="../../cassandra/operations/operationsTOC.html">Operations</a></span></span></li>
+   <li class="has-children"><span data-tocid="toolsTOC-d46e1875" data-state="not-ready" class=" topicref " data-id="toolsTOC"><span class="title"><a href="../../cassandra/tools/toolsTOC.html">Cassandra tools</a></span></span></li>
+   <li><span data-tocid="trblshootTOC-d46e3154" data-state="leaf" class=" topicref " data-id="trblshootTOC"><span class="title"><a href="../../cassandra/troubleshooting/trblshootTOC.html">Troubleshooting</a></span></span></li>
+   <li><span data-tocid="releaseNotes-d46e3163" data-state="leaf" class=" topicref " data-id="releaseNotes"><span class="title"><a href="../../cassandra/releaseNotes.html">Release notes</a></span></span></li>
+</ul></div>
+                    
+                    <div class="ds_top_menu_collapse">
+                        <ul>
+                            <li>
+                                <a href="https://www.datastax.com">Home</a>
+                            </li>
+                            <li>
+                                <a href="https://academy.datastax.com/">Academy</a>
+                            </li>
+                            <li>
+                                <a href="/en/">Docs home</a>
+                            </li>
+                            <li>
+                                <a href="https://www.datastax.com/contactus">Contact us</a>
+                            </li>
+                            <li>
+                                <a href="https://academy.datastax.com/downloads">Download
+                                    DataStax</a>
+                            </li>
+                            <li>
+                                <a href="/en/glossary/doc">Glossary</a>
+                            </li>
+                            <li>
+                                <a href="https://support.datastax.com/">Support</a>
+                            </li>
+                            <li>
+                                <a href="https://www.datastax.com/dev/blog/">Developer blogs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+        
+        <!-- Search form begin -->
+        
+        <div class=" wh_search_input "><form id="searchForm" method="get" action="../../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" /><button type="submit" class="wh_search_button"><span>Search</span></button></div><script><!--
+                                    $(document).ready(function () {
+                                        $('#searchForm').submit(function (e) {
+                                            if ($('.wh_search_textfield').val().length < 1) {
+                                                e.preventDefault();
+                                            }
+                                        });
+                                    });
+                                --></script></form></div>
+        <div class="search-tips">
+            <a href="/en/assets/html/searchTips.html" class="searchtips ajax-popup-link">
+                <span class="keyword">Search tips</span>
+            </a>
+        </div>
+        <div class="advanced-search">
+            <p><a href="/en/advancedSearch.html">Search other guides</a></p>
+        </div>
+
+        <!-- Search form end -->
+        
+        <div class="container-fluid">
+            <div class="row">
+
+                <nav class="wh_tools hidden-print">
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol xmlns:html="http://www.w3.org/1999/xhtml" class="hidden-print"><li><span class="home"><a href="../../index.html"><span>Home</span></a></span></li>
+   <li><span class="topicref" data-id="installTOC"><span class="title"><a href="../../cassandra/install/installTOC.html">Installing</a><span class="wh-tooltip">
+               
+               <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Ways to install Cassandra.</p>
+               </span></span></span></li>
+   <li><span class="topicref" data-id="installJDKabout"><span class="title"><a href="../../cassandra/install/installJDKabout.html">Installing the JDK</a><span class="wh-tooltip">
+               
+               <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Instructions for various platforms.</p>
+               </span></span></span></li>
+   <li class="active"><span class="topicref" data-id="installOpenJdkRHEL"><span class="title"><a href="../../cassandra/install/installOpenJdkRHEL.html">Installing OpenJDK on RHEL-based systems</a><span class="wh-tooltip">
+               
+               <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Steps for installing OpenJDK 8 on RHEL-based systems. </p>
+               </span></span></span></li>
+</ol></div>
+
+                    <div class="wh_right_tools hidden-sm hidden-xs">
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="link" href="../../cassandra/install/installJdkDeb.html" title="Installing Oracle JDK on Debian or Ubuntu systems"></a></span>  
+<span class="navnext"><a class="link" href="../../cassandra/install/installOpenJdkDeb.html" title="Installing OpenJDK on Debian-based systems"></a></span>  </span></div>
+                        <button class="wh_hide_highlight" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" title="Collapse sections"></button>
+                        <div class=" wh_print_link print "><a href="javascript:window.print();" title="Print this page"></a></div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav role="navigation" id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-3 hidden-xs navbar hidden-print">
+                            <div class=" wh_publication_toc " data-tooltip-position="right"><ul>
+   <li><span data-tocid="installTOC-d46e550" class="topicref" data-id="installTOC" data-state="expanded"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installTOC.html">Installing</a><span class="wh-tooltip">
+               
+               <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Ways to install Cassandra.</p>
+               </span></span></span><ul class="nav nav-list">
+         <li><span data-tocid="installRHEL-d46e561" class="topicref" data-id="installRHEL" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installRHEL.html">Using the Yum repository</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Install using Yum repositories on RHEL, CentOS, and Oracle Linux.</p>
+                     </span></span></span></li>
+         <li><span data-tocid="installDeb-d46e572" class="topicref" data-id="installDeb" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installDeb.html">Using the APT repository</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Install using APT repositories on Debian and Ubuntu.</p>
+                     </span></span></span></li>
+         <li><span data-tocid="installTarball-d46e583" class="topicref" data-id="installTarball" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installTarball.html">Installing from the binary tarball</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Install on all Linux-based platforms using a binary tarball. </p>
+                     </span></span></span></li>
+         <li><span data-tocid="installPriorVersions-d46e594" class="topicref" data-id="installPriorVersions" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installPriorVersions.html">Installing earlier releases</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Steps for installing the same version as other nodes in your cluster.</p>
+                     </span></span></span></li>
+         <li><span data-tocid="installRemove-d46e605" class="topicref" data-id="installRemove" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installRemove.html">Uninstalling Cassandra</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Steps for uninstalling Cassandra by installation             type.</p>
+                     </span></span></span></li>
+         <li><span data-tocid="installCloudProviders-d46e616" class="topicref" data-id="installCloudProviders" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installCloudProviders.html">Installing on cloud providers</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Installing Cassandra on cloud providers.</p>
+                     </span></span></span></li>
+         <li><span data-tocid="installJDKabout-d46e627" class="topicref" data-id="installJDKabout" data-state="expanded"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installJDKabout.html">Installing the JDK</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Instructions for various platforms.</p>
+                     </span></span></span><ul class="nav nav-list">
+               <li><span data-tocid="installJdkRHEL-d46e638" class="topicref" data-id="installJdkRHEL" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installJdkRHEL.html">Installing Oracle JDK on RHEL-based Systems</a><span class="wh-tooltip">
+                           
+                           <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Steps for installing the Oracle JDK on RHEL-based Systems.</p>
+                           </span></span></span></li>
+               <li><span data-tocid="installJdkDeb-d46e649" class="topicref" data-id="installJdkDeb" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installJdkDeb.html">Installing Oracle JDK on Debian-based systems</a><span class="wh-tooltip">
+                           
+                           <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Steps for installing the Oracle JDK on Debian-based systems.</p>
+                           </span></span></span></li>
+               <li class="active"><span data-tocid="installOpenJdkRHEL-d46e660" class="topicref" data-id="installOpenJdkRHEL" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installOpenJdkRHEL.html">Installing OpenJDK on RHEL-based systems</a><span class="wh-tooltip">
+                           
+                           <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Steps for installing OpenJDK 8 on RHEL-based systems. </p>
+                           </span></span></span></li>
+               <li><span data-tocid="installOpenJdkDeb-d46e671" class="topicref" data-id="installOpenJdkDeb" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installOpenJdkDeb.html">Installing OpenJDK on Debian-based systems</a><span class="wh-tooltip">
+                           
+                           <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Steps for installing OpenJDK 8 on Debian-based systems.</p>
+                           </span></span></span></li>
+            </ul>
+         </li>
+         <li><span data-tocid="installRecommendSettings-d46e682" class="topicref" data-id="installRecommendSettings" data-state="leaf"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/installRecommendSettings.html">Recommended production settings</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Recommendations for production environments.</p>
+                     </span></span></span></li>
+         <li><span data-tocid="referenceInstallLocationsTOC-d46e693" class="topicref" data-id="referenceInstallLocationsTOC" data-state="not-ready"><span class="wh-expand-btn"></span><span class="title"><a href="../../cassandra/install/referenceInstallLocationsTOC.html">Install locations</a><span class="wh-tooltip">
+                     
+                     <p xmlns:toc="http://www.oxygenxml.com/ns/webhelp/toc" xmlns:xhtml="http://www.w3.org/1999/xhtml" class="shortdesc">Install location topics.</p>
+                     </span></span></span></li>
+      </ul>
+   </li>
+</ul></div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" id="wh_topic_body">
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Installing OpenJDK on RHEL-based systems</h1>
+
+    
+    
+    <div class="body taskbody"><p class="shortdesc">Steps for installing OpenJDK 8 on RHEL-based systems. </p>
+
+        <section class="section context">
+            <p class="p" id="installOpenJdkRHEL__open-jdk-config">Configure your operating system to use the <a class="xref" href="http://openjdk.java.net/" target="_blank">OpenJDK 8</a>. </p>
+
+        </section>
+
+        <div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><p class="li stepsection">In a terminal:</p><ol class="ol steps"><li class="li step stepexpand">
+                <span class="ph cmd">Install the OpenJDK 8:</span>
+                <div class="itemgroup stepxmp">
+                    <pre class="pre screen language-bash">su -c "yum install java-1.8.0-openjdk"</pre>
+                </div>
+            </li>
+<li class="li step stepexpand" id="installOpenJdkRHEL__new-version">
+                <span class="ph cmd">If you have more than one Java version installed on your system use the
+                    following command to switch versions: </span>
+                <div class="itemgroup info">
+                    <pre class="pre screen language-bash">sudo alternatives --config java</pre>
+                </div>
+            </li>
+<li class="li step stepexpand">
+                <span class="ph cmd">Make sure your system is using the correct JDK:</span>
+                <div class="itemgroup stepxmp">
+                    <pre data-swiftype-name="codeblock" data-swiftype-type="text" class="pre codeblock"><code>$ java -version</code></pre>
+                </div>
+                <div class="itemgroup stepresult">
+                    <pre data-swiftype-name="codeblock" data-swiftype-type="text" class="pre codeblock"><code>openjdk version "1.8.0_71"
+OpenJDK Runtime Environment (build 1.8.0_71-b15)
+OpenJDK 64-Bit Server VM (build 25.71-b15, mixed mode)</code></pre>
+                </div>
+            </li>
+</ol>
+
+    </div>
+
+</article></main></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <nav class="hidden-print col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="text-center wh_bottom_tools hidden-sm hidden-xs">
+                        <div class=" wh_navigation_links bottom_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="link" href="../../cassandra/install/installJdkDeb.html" title="Installing Oracle JDK on Debian or Ubuntu systems"></a></span>  
+<span class="navnext"><a class="link" href="../../cassandra/install/installOpenJdkDeb.html" title="Installing OpenJDK on Debian-based systems"></a></span>  </span></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <div id="go2top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </div>
+        
+        <!-- The modal container for images -->
+        <div id="modal_img_large" class="modal">
+            <span class="close glyphicon glyphicon-remove"></span>
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="modal-img" />
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+        
+        
+<nav class="navbar navbar-default wh_footer">
+  <div class=" footer-container text-center ">
+    <!--whc:include_html href="${webhelp.fragment.footer}"/-->
+  <div class="ds_footer_bottom">
+      <a href="/en/landing_page/doc/landing_page/docList.html#docList__pdfDocs" target="_blank" title="PDF">
+        <span class="flaticon-symbol"></span></a>
+      <a href="/en/landing_page/doc/landing_page/docTips.html" target="_blank" title="Doc tips">
+        <span class="flaticon-signs"></span></a>
+      <a href="/en/landing_page/doc/landing_page/contact.html" target="_blank" title="Email feedback guidelines">
+        <span class="flaticon-new-email-interface-symbol-of-black-closed-envelope"></span></a>
+      <a href="/en/landing_page/doc/landing_page/contact.html" target="_blank" title="Twitter feedback guidelines">
+        <span class="flaticon-twitter-logo-button"></span></a>
+      <a href="https://github.com/datastax/" target="_blank" title="DataStax GitHub">
+        <span class="flaticon-github-logo"></span></a>
+      <a href="/en/cassandra/3.0/zip/cassandra30.zip" target="_blank" title="Zipped doc">
+        <span class="flaticon-symbols"></span></a>
+    </div>
+    <span>©</span>
+    <span id="copyrightdate"></span>
+    <script type="text/javascript">document.getElementById("copyrightdate").innerHTML = new Date().getFullYear();</script>
+    <span>DataStax, Inc. All rights reserved. Updated: 2018-05-18</span>
+    <span style="display: none">Build time: 2018-05-18 09:45:50.724</span>
+    <p>DataStax is a registered trademark of DataStax, Inc. and its subsidiaries in the United States and/or other countries.</p>
+    <p>Apache Cassandra, Apache, Tomcat, Lucene, Solr, Hadoop, Spark, TinkerPop, and Cassandra are trademarks of the Apache Software Foundation or its subsidiaries in Canada, the United States and/or other countries. </p>
+  </div>
+  
+        <!-- Run the datastax version script -->
+        <script type="text/javascript">getVersionDropdown("cassandra", "cassandra30");</script>
+        
+        <!-- Analytics scripts for IT -->
+        <script type="text/javascript">
+          (function() {
+            var didInit = false;
+            function initMunchkin() {
+              if(didInit === false) {
+                didInit = true;
+                Munchkin.init('259-IFZ-779', { 'asyncOnly': true, 'disableClickDelay': true });
+                }
+              }
+              var s = document.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+              s.onreadystatechange = function() {
+                if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                  initMunchkin();
+                }
+             };
+             s.onload = initMunchkin;
+             document.getElementsByTagName('head')[0].appendChild(s);
+        })();
+        </script>
+        <!-- end analytics scripts for IT -->
+
+        <!-- Digital Attribution Code -->
+        <script type="text/javascript">
+            var bfId="xx4vaCYlG5ayt04m", bfSession = 0.041666666666666664;
+            (function() {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.async = true;
+                script.src = ('https:' === document.location.protocol ? 'https://' : 'http://' ) + 'munchkin.brightfunnel.com/js/build/bf-munchkin.min.js?tstamp=' + new Date().getTime();
+                var top = document.getElementsByTagName('script')[0];
+                top.parentNode.insertBefore(script, top);
+            })();
+        </script>
+        <!-- end Digital Attribution Code -->
+        
+        <!-- Run the datastax specific initialization code from dsInit.js -->
+        <script type="text/javascript">dsInit();</script>
+</nav>
+
+        <script type="text/javascript">replaceNextPrevArrows();</script>
+        <script src="../../oxygen-webhelp/lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        
+    </body>
+</html>
+
