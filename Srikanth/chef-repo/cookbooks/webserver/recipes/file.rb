@@ -1,5 +1,8 @@
 
 file "/opt/infosys.txt" do
- content "Welcome to Infosys"
+ content "Hi.. my name is #{node['webserver']['name']} "
 end
+
+
+
 
