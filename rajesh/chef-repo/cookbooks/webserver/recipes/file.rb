@@ -1,4 +1,4 @@
-default['webserver']['age']= '33'
+node.default['webserver']['age']= '33'
 myname = node['webserver']['name']
 
 file "/opt/infosys.txt" do
