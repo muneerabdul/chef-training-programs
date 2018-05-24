@@ -1,0 +1,54 @@
+{
+  "create": {
+    "actors": [
+      "node2",
+      "pivotal",
+      "rajeshkumar"
+    ],
+    "groups": [
+      "admins"
+    ]
+  },
+  "read": {
+    "actors": [
+      "node2",
+      "pivotal",
+      "rajeshkumar"
+    ],
+    "groups": [
+      "admins",
+      "users"
+    ]
+  },
+  "update": {
+    "actors": [
+      "node2",
+      "pivotal",
+      "rajeshkumar"
+    ],
+    "groups": [
+      "admins"
+    ]
+  },
+  "delete": {
+    "actors": [
+      "node2",
+      "pivotal",
+      "rajeshkumar"
+    ],
+    "groups": [
+      "admins",
+      "users"
+    ]
+  },
+  "grant": {
+    "actors": [
+      "node2",
+      "pivotal",
+      "rajeshkumar"
+    ],
+    "groups": [
+      "admins"
+    ]
+  }
+}

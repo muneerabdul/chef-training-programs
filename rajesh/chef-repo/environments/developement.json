@@ -1,0 +1,13 @@
+{
+  "name": "developement",
+  "cookbook_versions": {
+    "webserver": "= 0.1.1"
+  },
+  "override_attributes": {
+    "webserver": {
+      "name": [
+        "RAM"
+      ]
+    }
+  }
+}

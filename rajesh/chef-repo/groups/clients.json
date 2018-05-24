@@ -1,0 +1,8 @@
+{
+  "name": "clients",
+  "clients": [
+    "infy-symantec-validator",
+    "node1",
+    "node2"
+  ]
+}
