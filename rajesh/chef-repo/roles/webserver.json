@@ -1,0 +1,8 @@
+{
+  "name": "webserver",
+  "description": "this is oor infy demo of chef role",
+  "run_list": [
+    "recipe[webserver]",
+    "recipe[files]"
+  ]
+}
